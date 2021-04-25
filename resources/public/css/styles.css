@@ -1,0 +1,43 @@
+
+.history-picture {
+  vertical-align: middle;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+}
+
+.carousel-picture {
+  height: 650px;
+}
+
+.map-container{
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+.map-container iframe{
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: 0;
+}
+
+.bg-super-black{
+  background:#000000;
+}
+
+.bi-instagram{
+  font-size: 2rem;
+}
+
+.bi-facebook{
+  font-size: 2rem;
+}
+
+.anchor{
+	padding-top: 60px;
+}
+
