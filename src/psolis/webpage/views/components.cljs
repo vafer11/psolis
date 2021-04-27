@@ -28,7 +28,7 @@
    (for [{:keys [id name desc src]} items]
      ^{:key id}
      [:> bs/Carousel.Item
-      [:img {:class "img-fluid"
+      [:img {:class "d-block w-100 carousel-picture"
              :alt name
              :src src}]
       [:> bs/Carousel.Caption

@@ -87,9 +87,11 @@
     ;(update-in navbar-items [:links] #(list (first %1)))    ; Take just "Home" link
     ;false
     ]
-   [:div.container-fluid.mt-5
+   [:div.container-fluid.mt-5.text-center
     [:div.row.justify-content-center
-     [:h1.text-uppercase.anchor "Nuestros Productos"]
+     [:div {:class "col-12 col-md-12 col-lg-8"}
+      [:h1.text-uppercase.anchor "Nuestros Productos"]]]
+    [:div.row.justify-content-center
      [:div.p-5 [:div.row [coll-of-cards products]]]
      [:div.p-5 [:div.row [coll-of-cards products]]]
      [:div.p-5 [:div.row [coll-of-cards products]]]
