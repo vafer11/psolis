@@ -3,12 +3,12 @@
 (def data
   {:navbar-items {:brand "Panadería Solis"
                   :src "img/logo2.png"
-                  :links ["inicio" "nosotros" "productos" "historia"]}
+                  :links ["nosotros" "productos" "historia"]}
 
    :carousel-items [{:id "1"
                      :name "Panificación Artesanal"
                      :desc "Somos una panadería tradicional de elaboración 100% artesanal, respetamos  siempre los procesos de una FERMENTACIÓN LENTA Y NATURAL."
-                     :src "/img/slice1.jpg"}
+                     :src "/img/slice3.jpg"}
                     {:id "2"
                      :name "Bizcochería"
                      :desc "Cada producto es único, hecho a mano con el sabor inigualable del HORNO A LEÑA."
@@ -26,13 +26,13 @@
                              :title "Quienes Somos"
                              :desc "Panadería artesanal con más de 100 años de história, más de 50 años en la familia, parte del pequeño pueblo de Solís de Mataojo. Foco en la producción artesanal trabajando con horno a leña pero utilizando las últimas tecnologías en cuestión de producción"}
                       :images [{:id "1"
-                              :src "/img/slice1.jpg"
+                              :src "/img/slice1.min.jpg"
                               :alt "Trabajo en frío"}
                              {:id "2"
-                              :src "/img/slice2.jpg"
+                              :src "/img/slice2.min.jpg"
                               :alt "Horno a leña"}
                              {:id "3"
-                              :src "/img/slice3.jpg"
+                              :src "/img/slice3.min.jpg"
                               :alt "Elaboración de Panes"}]}
 
    :products-items {:id "productos"
@@ -50,22 +50,22 @@
    :products [{:id 1
                :title "Bizcocho"
                :text "Bizcocho de anis, mantequilla, azucar, y bla bla bla..."
-               :img "/img/img2.png"
+               :img "/img/bizcochos.min.jpg"
                :alt "Foto de bizcocho de anis"}
               {:id 2
                :title "Pan"
                :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/img4.png"
+               :img "/img/pan.min.jpg"
                :alt "Foto de pan de sésamo"}
               {:id 3
                :title "Bizcocho"
                :text "Bizcocho de anis, mantequilla, azucar, y bla bla bla..."
-               :img "/img/img2.png"
+               :img "/img/bizcochos.min.jpg"
                :alt "Foto de bizcocho de anis"}
               {:id 4
                :title "Pan"
                :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/img4.png"
+               :img "/img/pan.min.jpg"
                :alt "Foto de pan de sésamo"}]
 
    :footer-items {:data {:title "Panadería Solis"

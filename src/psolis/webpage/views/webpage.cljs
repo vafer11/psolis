@@ -1,13 +1,14 @@
 (ns psolis.webpage.views.webpage
   (:require ["react-bootstrap" :as bs]
             [re-frame.core :as re-frame]
+            [reagent.core :as reagent]
             [psolis.events :as events]
             [psolis.webpage.views.components :refer [navbar carousel coll-of-cards]]))
 
 (defn who-we-are [{:keys [data images]}]
   [:div {:class "container-fluid text-center"}
    [:div {:class "row justify-content-center"}
-    [:div {:class "col-8"}
+    [:div {:class "col-12 col-md-12 col-lg-8"}
      [:h1 {:class "text-uppercase anchor" :id (str "h1-" (:id data))} (:title data)]
      [:p {:class "lead mt-5"} (:desc data)]]]
    [:div.row
@@ -19,7 +20,7 @@
 (defn products [data]
   [:div {:class "container-fluid text-center"}
    [:div {:class "row justify-content-center"}
-    [:div {:class "col-8"}
+    [:div {:class "col-12 col-md-12 col-lg-8"}
      [:h1 {:class "text-uppercase anchor" :id (str "h1-" (:id data))} (:title data)]
      [:p {:class "lead mt-5"} (:desc data)]]]
    [:> bs/Button
@@ -30,7 +31,7 @@
 (defn history [{:keys [data paragraphs img]}]
   [:div {:class "container-fluid text-center"}
    [:div {:class "row justify-content-center"}
-    [:div {:class "col-8"}
+    [:div {:class "col-12 col-md-12 col-lg-8"}
      [:h1 {:class "text-uppercase anchor" :id (str "h1-" (:id data))} (:title data)]]]
    [:div.row.history-container.mt-5
     [:div.col-lg.d-flex.align-items-center
@@ -73,9 +74,7 @@
 
 (defn webpage [{:keys [navbar-items carousel-items who-we-are-items products-items history-items footer-items]}]
   [:div
-   [navbar
-    (update-in navbar-items [:links] rest)                  ;Remove First Link "Home"
-    true]
+   [navbar navbar-items true]
    [:div.mb-5 [carousel carousel-items]]
    [:div.p-5  [who-we-are who-we-are-items]]
    [:div.p-5 [products products-items]]
@@ -84,9 +83,10 @@
 
 (defn product-page [{:keys [navbar-items footer-items products]}]
   [:div
-   [navbar
-    (update-in navbar-items [:links] #(list (first %1)))    ; Take just "Home" link
-    false]
+   [navbar navbar-items false
+    ;(update-in navbar-items [:links] #(list (first %1)))    ; Take just "Home" link
+    ;false
+    ]
    [:div.container-fluid.mt-5
     [:div.row.justify-content-center
      [:h1.text-uppercase.anchor "Nuestros Productos"]
@@ -95,3 +95,4 @@
      [:div.p-5 [:div.row [coll-of-cards products]]]
      [:div.p-5 [:div.row [coll-of-cards products]]]]]
    [:div.bg-super-black.pr-5.pl-5.pt-5 [footer footer-items]]])
+
