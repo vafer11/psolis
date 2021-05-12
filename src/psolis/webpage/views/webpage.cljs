@@ -2,7 +2,10 @@
   (:require ["react-bootstrap" :as bs]
             [re-frame.core :as re-frame]
             [reagent.core :as reagent]
+            [re-frame.core :refer [dispatch subscribe]]
+            [psolis.webpage.subs :as subs]
             [psolis.events :as events]
+            [psolis.webpage.views.helper :as helper]
             [psolis.webpage.views.components :refer [navbar carousel coll-of-cards]]))
 
 (defn who-we-are [{:keys [data images]}]
@@ -25,7 +28,7 @@
      [:p {:class "lead mt-5"} (:desc data)]]]
    [:> bs/Button
     {:variant "outline-dark"
-     :onClick #(re-frame/dispatch [::events/navigate :product])}
+     :onClick #(dispatch [::events/navigate :product])}
     "Ver Productos"]])
 
 (defn history [{:keys [data paragraphs img]}]
@@ -72,29 +75,55 @@
       [:p "© 2020 Copyright Panadería Solis."]]]]])
 
 
+
 (defn webpage [{:keys [navbar-items carousel-items who-we-are-items products-items history-items footer-items]}]
-  [:div
-   [navbar navbar-items true]
-   [:div.mb-5 [carousel carousel-items]]
-   [:div.p-5  [who-we-are who-we-are-items]]
-   [:div.p-5 [products products-items]]
-   [:div.bg-light.border-top.p-5 [history history-items]]
-   [:div.bg-super-black.pr-5.pl-5.pt-5 [footer footer-items]]])
+  (let [hash @(subscribe [::subs/hash])
+        nav-comp [navbar navbar-items true]
+        carousel-comp [carousel carousel-items]
+        who-we-are-comp [who-we-are who-we-are-items]
+        products-comp [products products-items]
+        history-comp [history history-items]
+        footer-comp [footer footer-items]]
+    (reagent/create-class
+      {:component-did-mount
+       (fn []
+         (case hash
+           "#nosotros" (helper/scrollTo "h1-nosotros")
+           "#productos" (helper/scrollTo "h1-productos")
+           "#historia" (helper/scrollTo "h1-historia")
+           "default"))
+       :display-name "webpage component"
+       :reagent-render
+       (fn [{:keys [navbar-items carousel-items who-we-are-items products-items history-items footer-items]}]
+         [:div
+          nav-comp
+          [:div.mb-5 carousel-comp]
+          [:div.p-5  who-we-are-comp]
+          [:div.p-5 products-comp]
+          [:div.bg-light.border-top.p-5 history-comp]
+          [:div.bg-super-black.pr-5.pl-5.pt-5 footer-comp]])})))
 
 (defn product-page [{:keys [navbar-items footer-items products]}]
-  [:div
-   [navbar navbar-items false
-    ;(update-in navbar-items [:links] #(list (first %1)))    ; Take just "Home" link
-    ;false
-    ]
-   [:div.container-fluid.mt-5.text-center
-    [:div.row.justify-content-center
-     [:div {:class "col-12 col-md-12 col-lg-8"}
-      [:h1.text-uppercase.anchor "Nuestros Productos"]]]
-    [:div.row.justify-content-center
-     [:div.p-5 [:div.row [coll-of-cards products]]]
-     [:div.p-5 [:div.row [coll-of-cards products]]]
-     [:div.p-5 [:div.row [coll-of-cards products]]]
-     [:div.p-5 [:div.row [coll-of-cards products]]]]]
-   [:div.bg-super-black.pr-5.pl-5.pt-5 [footer footer-items]]])
+  (let [nav [navbar navbar-items false]
+        coll-of-products [coll-of-cards products]
+        footer-section [footer footer-items]]
+    (reagent/create-class
+      {:component-did-mount
+         (fn []
+           (.scrollTo js/window 0 0))
+       :display-name "product-page"
+       :reagent-render
+         (fn [{:keys [navbar-items footer-items products]}]
+            [:div
+              nav
+              [:div.container-fluid.mt-5.text-center
+                [:div.row.justify-content-center
+                  [:div {:class "col-12 col-md-12 col-lg-8"}
+                    [:h1.text-uppercase.anchor "Nuestros Productos"]]]
+                [:div.row.justify-content-center
+                  [:div.p-5 [:div.row coll-of-products]]
+                  [:div.p-5 [:div.row coll-of-products]]
+                  [:div.p-5 [:div.row coll-of-products]]
+                  [:div.p-5 [:div.row coll-of-products]]]]
+              [:div.bg-super-black.pr-5.pl-5.pt-5 footer-section]])})))
 

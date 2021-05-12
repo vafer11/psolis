@@ -4,13 +4,7 @@
    [re-frame.core :as re-frame]
    [psolis.events :as events]
    [psolis.routes :as routes]
-   [psolis.views :as views]
-   [psolis.config :as config]))
-
-
-(defn dev-setup []
-  (when config/debug?
-    (println "dev mode")))
+   [psolis.views :as views]))
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
@@ -21,5 +15,4 @@
 (defn init []
   (routes/start!)
   (re-frame/dispatch-sync [::events/initialize-db])
-  (dev-setup)
   (mount-root))

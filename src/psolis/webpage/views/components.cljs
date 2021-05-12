@@ -1,10 +1,6 @@
 (ns psolis.webpage.views.components
-  (:require ["react-bootstrap" :as bs]))
-
-(defn nav-item-click [id in-page-navigation]
-  (if in-page-navigation
-    (when-let [element (.getElementById js/document (str "h1-" id))] (.scrollIntoView element))
-    (when-let [element (.getElementById js/document id)] (set! (.-href element) "/"))))
+  (:require ["react-bootstrap" :as bs]
+            [psolis.webpage.views.helper :as helper]))
 
 (defn navbar [{:keys [brand src links]} in-page-navigation]
   [:> bs/Navbar {:variant "dark bg-super-black"
@@ -17,7 +13,7 @@
     [:> bs/Nav {:className "mr-auto"}
      (for [anchor links]
        ^{:key anchor}
-       [:> bs/Nav.Link {:onClick #(nav-item-click anchor in-page-navigation)
+       [:> bs/Nav.Link {:onClick #(helper/nav-item-click anchor in-page-navigation)
                         :className "text-white"
                         :id anchor} anchor])]
     [:> bs/Form
@@ -46,6 +42,14 @@
 
 (defn coll-of-cards [items]
   [:<> (for [item items]
-    ^{:key (:id item)}
-    [:div {:class "col-lg-3 col-md-6 d-flex justify-content-center mb-1"}
-     [card item]])])
+   ^{:key (:id item)}
+   [:div {:class "col-lg-3 col-md-6 d-flex justify-content-center mb-1"}
+    [card item]])])
+
+(defn simple-footer []
+  [:footer {:class "bg-super-black text-center text-white"}
+   [:div {:class "container-fluid"}
+    [:br]
+    [:div {:class "row"}
+     [:div {:class "col pb-3"}
+      [:p "© 2020 Copyright Panadería Solis."]]]]])
