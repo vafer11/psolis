@@ -5,7 +5,7 @@
 (defn navbar [{:keys [brand src links]} in-page-navigation]
   [:> bs/Navbar {:variant "dark bg-super-black"
                  :expand "lg"
-                 :fixed "top"}
+                 :fixed "top2"}
    [:> bs/Navbar.Brand {:class "font-weight-bold"} brand]
    [:> bs/Navbar.Toggle {:aria-controls "basic-navbar-nav"}]
    [:> bs/Navbar.Collapse {:id "basic-navbar-nav"
@@ -24,12 +24,13 @@
    (for [{:keys [id name desc src]} items]
      ^{:key id}
      [:> bs/Carousel.Item
-      [:img {:class "d-block w-100 carousel-picture2"
+      [:img {:class "d-block w-100 carousel-picture2 img-responsive"
              :alt name
              :src src}]
-      [:> bs/Carousel.Caption
+      (comment[:> bs/Carousel.Caption
        [:h3 name]
-       [:p desc]]])])
+       [:p desc]])
+      ])])
 
 (defn card [{:keys [title text img alt]}]
   [:> bs/Card
