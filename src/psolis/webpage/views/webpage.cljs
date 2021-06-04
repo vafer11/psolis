@@ -122,8 +122,9 @@
                     [:h1.text-uppercase.anchor "Nuestros Productos"]]]
                 [:div.row.justify-content-center
                   [:div.p-5 [:div.row coll-of-products]]
-                  [:div.p-5 [:div.row coll-of-products]]
-                  [:div.p-5 [:div.row coll-of-products]]
-                  [:div.p-5 [:div.row coll-of-products]]]]
+                 ;[:div.p-5 [:div.row coll-of-products]]
+                 ;[:div.p-5 [:div.row coll-of-products]]
+                 ;[:div.p-5 [:div.row coll-of-products]]
+                 ]]
               [:div.bg-super-black.pr-5.pl-5.pt-5 footer-section]])})))
 

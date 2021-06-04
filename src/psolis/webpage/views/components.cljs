@@ -17,7 +17,7 @@
                         :className "text-white"
                         :id anchor} anchor])]
     [:> bs/Form
-     [:> bs/Button {:variant "outline-info"} "Login"]]]])
+     [:> bs/Button {:variant "outline-info invisible"} "Login"]]]])
 
 (defn carousel [items]
   [:> bs/Carousel
