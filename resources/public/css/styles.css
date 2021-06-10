@@ -1,13 +1,12 @@
 
 .history-picture {
-  vertical-align: middle;
-  width: 450px;
-  height: 450px;
+  max-height: 520px;
+  max-width: 540px;
   border-radius: 50%;
 }
 
 .carousel-picture {
-  height: 650px;
+  max-height: 650px;
 }
 
 .map-container{
@@ -44,4 +43,13 @@
 .img-fluid-{
   max-width: 100%;
   height: auto;
+}
+
+@media  (max-width: 530px) {
+	.carousel-picture-title{
+		display: none;
+	}
+	.carousel-picture-desc{
+		display: none;
+	}
 }

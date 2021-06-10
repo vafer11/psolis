@@ -41,92 +41,100 @@
 
    :history-items {:data {:id "historia"
                           :title "Nuestra Historia"}
-                   :paragraphs [{:id 1 :p "Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam."}
-                                {:id 2 :p "Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam."}
-                                {:id 3 :p "Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam."}
-                                {:id 4 :p "Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam."}]
+                   :paragraphs [{:id 1 :p "Hoy somos una Panadería llena de historia, en 1920 surgió la idea por el Sr. Felix Castro de fundar una Panadería de Pueblo.
+                                           El 1 de Junio de 1920 salió la primera horneada, y desde entonces el tradicional horno a leña continúa interrumpidamente cocinando el pan de cada día."}
+                                {:id 2 :p "Hoy como responsable de este momento de história queremos recordar a todos aquellos que han hecho posible estos mas de 100 de história."}
+                                {:id 3 :p "Panadería Solis, desde 1920."}]
                    :img {:src "img/webp/historia.jpg"
                          :alt "Foto historia"}}
-   :products [{:id 1
-               :title "Media Lunas"
-               :text "Bizcocho de anis, mantequilla, azucar, y bla bla bla..."
-               :img "/img/webp/cafeteria1.jpg"
-               :alt "Foto de bizcocho de anis"}
-              {:id 2
-               :title "Bizcochos"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/cafeteria2.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 3
-               :title "Media Lunas"
-               :text "Bizcocho de anis, mantequilla, azucar, y bla bla bla..."
-               :img "/img/webp/cafeteria3.jpg"
-               :alt "Foto de bizcocho de anis"}
-              {:id 4
-               :title "Donas"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria3.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 5
-               :title "Alfajores"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria3.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 6
-               :title "Ojitos"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria2.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 7
-               :title "Donas"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria3.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 8
-               :title "Alfajores"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria2.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 9
-               :title "Pan"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/rotiseria1.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 10
-               :title "Pan"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/rotiseria2.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 11
-               :title "Pan"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/rotiseria1.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 12
-               :title "Pan"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/rotiseria2.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 13
-               :title "Donas"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria3.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 14
-               :title "Donas"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria3.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 15
-               :title "Donas"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria3.jpg"
-               :alt "Foto de pan de sésamo"}
-              {:id 16
-               :title "Donas"
-               :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
-               :img "/img/webp/reposteria3.jpg"
-               :alt "Foto de pan de sésamo"}]
+
+   :products {:cafeteria {:name "Cafetería"
+                          :elements [{:id 1
+                                      :title "Media Lunas"
+                                      :text "Bizcocho de anis, mantequilla, azucar, y bla bla bla..."
+                                      :img "/img/webp/cafeteria1.jpg"
+                                      :alt "Foto de bizcocho de anis"}
+                                     {:id 2
+                                      :title "Bizcochos"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/cafeteria2.jpg"
+                                      :alt "Foto de pan de sésamo"}
+                                     {:id 3
+                                      :title "Media Lunas"
+                                      :text "Bizcocho de anis, mantequilla, azucar, y bla bla bla..."
+                                      :img "/img/webp/cafeteria3.jpg"
+                                      :alt "Foto de bizcocho de anis"}
+                                     {:id 4
+                                      :title "Donas"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/reposteria3.jpg"
+                                      :alt "Foto de pan de sésamo"}]}
+
+              :rotiseria {:name "Rotisería"
+                          :elements [{:id 5
+                                      :title "Alfajores"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/reposteria3.jpg"
+                                      :alt "Foto de pan de sésamo"}
+                                     {:id 6
+                                      :title "Ojitos"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/reposteria2.jpg"
+                                      :alt "Foto de pan de sésamo"}
+                                     {:id 7
+                                      :title "Donas"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/reposteria3.jpg"
+                                      :alt "Foto de pan de sésamo"}
+                                     {:id 8
+                                      :title "Alfajores"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/reposteria2.jpg"
+                                      :alt "Foto de pan de sésamo"}]}
+
+              :panaderia {:name "Panadería"
+                          :elements [{:id 9
+                                      :title "Pan"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/rotiseria1.jpg"
+                                      :alt "Foto de pan de sésamo"}
+                                     {:id 10
+                                      :title "Pan"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/rotiseria2.jpg"
+                                      :alt "Foto de pan de sésamo"}
+                                     {:id 11
+                                      :title "Pan"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/rotiseria1.jpg"
+                                      :alt "Foto de pan de sésamo"}
+                                     {:id 12
+                                      :title "Pan"
+                                      :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                      :img "/img/webp/rotiseria2.jpg"
+                                      :alt "Foto de pan de sésamo"}]}
+
+              :reposteria {:name "Repostería"
+                           :elements [{:id 13
+                                       :title "Donas"
+                                       :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                       :img "/img/webp/reposteria3.jpg"
+                                       :alt "Foto de pan de sésamo"}
+                                      {:id 14
+                                       :title "Donas"
+                                       :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                       :img "/img/webp/reposteria3.jpg"
+                                       :alt "Foto de pan de sésamo"}
+                                      {:id 15
+                                       :title "Donas"
+                                       :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                       :img "/img/webp/reposteria3.jpg"
+                                       :alt "Foto de pan de sésamo"}
+                                      {:id 16
+                                       :title "Donas"
+                                       :text "Pan de semillas de sésamo, sal,  azucar, y bla bla bla..."
+                                       :img "/img/webp/reposteria3.jpg"
+                                       :alt "Foto de pan de sésamo"}]}}
 
    :footer-items {:data {:title "Panadería Solis"
                          :desc "Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod sectetur sectetur elit, sed do secteturelit, sed do sectetur sectetur."}

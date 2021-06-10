@@ -9,8 +9,8 @@
             [psolis.webpage.views.components :refer [navbar carousel coll-of-cards]]))
 
 (defn who-we-are [{:keys [data images]}]
-  [:div {:class "container-fluid text-center"}
-   [:div {:class "row justify-content-center"}
+  [:div {:class "container-fluid"}
+   [:div {:class "row justify-content-center text-center"}
     [:div {:class "col-12 col-md-12 col-lg-8"}
      [:h1 {:class "text-uppercase anchor" :id (str "h1-" (:id data))} (:title data)]
      [:p {:class "lead mt-5"} (:desc data)]]]
@@ -32,17 +32,17 @@
     "Ver Productos"]])
 
 (defn history [{:keys [data paragraphs img]}]
-  [:div {:class "container-fluid text-center"}
-   [:div {:class "row justify-content-center"}
+  [:div {:class "container-fluid"}
+   [:div {:class "row justify-content-center text-center"}
     [:div {:class "col-12 col-md-12 col-lg-8"}
      [:h1 {:class "text-uppercase anchor" :id (str "h1-" (:id data))} (:title data)]]]
    [:div.row.history-container.mt-5
     [:div.col-lg.d-flex.align-items-center
-     [:div.container-fluid
+     [:div.container-fluid.text-center
       (for [{:keys [id p]} paragraphs]
         ^{:key id}
-        [:p.lead.text-left p])]]
-    [:div.col-lg
+        [:p.lead p])]]
+    [:div.col-lg.d-flex.justify-content-center
      [:img.d-block.w-100.history-picture img]]]])
 
 (defn footer [{:keys [data location contact social]}]
@@ -98,33 +98,45 @@
          [:div
           nav-comp
           [:div.mb-5 carousel-comp]
-          [:div.p-5  who-we-are-comp]
-          [:div.p-5 products-comp]
-          [:div.bg-light.border-top.p-5 history-comp]
-          [:div.bg-super-black.pr-5.pl-5.pt-5 footer-comp]])})))
+          [:div.p-3  who-we-are-comp]
+          [:div.p-3 products-comp]
+          [:div.bg-light.border-top.p-3 history-comp]
+          [:div.bg-super-black.pr-3.pl-3.pt-5 footer-comp]])})))
 
 (defn product-page [{:keys [navbar-items footer-items products]}]
   (let [nav [navbar navbar-items false]
-        coll-of-products [coll-of-cards products]
+        cafeteria [coll-of-cards
+                   (get-in products [:cafeteria :name])
+                   (get-in products [:cafeteria :elements])]
+        panaderia [coll-of-cards
+                   (get-in products [:panaderia :name])
+                   (get-in products [:panaderia :elements])]
+        rotiseria [coll-of-cards
+                   (get-in products [:rotiseria :name])
+                   (get-in products [:rotiseria :elements])]
+        reposteria [coll-of-cards
+                   (get-in products [:reposteria :name])
+                   (get-in products [:reposteria :elements])]
+
         footer-section [footer footer-items]]
     (reagent/create-class
       {:component-did-mount
-         (fn []
-           (.scrollTo js/window 0 0))
+                     (fn []
+                         (.scrollTo js/window 0 0))
        :display-name "product-page"
        :reagent-render
-         (fn [{:keys [navbar-items footer-items products]}]
-            [:div
-              nav
-              [:div.container-fluid.mt-5.text-center
-                [:div.row.justify-content-center
-                  [:div {:class "col-12 col-md-12 col-lg-8"}
-                    [:h1.text-uppercase.anchor "Nuestros Productos"]]]
-                [:div.row.justify-content-center
-                  [:div.p-5 [:div.row coll-of-products]]
-                 ;[:div.p-5 [:div.row coll-of-products]]
-                 ;[:div.p-5 [:div.row coll-of-products]]
-                 ;[:div.p-5 [:div.row coll-of-products]]
-                 ]]
-              [:div.bg-super-black.pr-5.pl-5.pt-5 footer-section]])})))
+                     (fn [{:keys [navbar-items footer-items products]}]
+                         [:div
+                          nav
+                          [:div.container-fluid.mt-5.text-center
+                           [:div.row.justify-content-center
+                            [:div {:class "col-12 col-md-12 col-lg-8"}
+                             [:h1.text-uppercase.anchor "Nuestros Productos"]]]
+                           [:div.row.justify-content-center
+                            [:div.p-5
+                             cafeteria
+                             panaderia
+                             rotiseria
+                             reposteria]]]
+                          [:div.bg-super-black.pr-5.pl-5.pt-5 footer-section]])})))
 
