@@ -7,7 +7,8 @@
                  :expand "lg"
                  :fixed "top2"}
    [:> bs/Navbar.Brand {:class "font-weight-bold"}
-    [:img {:src "/img/webp/logo.png"}]
+    [:img {:src "/img/webp/logo2.png"
+           :height "35"}]
     ]
    [:> bs/Navbar.Toggle {:aria-controls "basic-navbar-nav"}]
    [:> bs/Navbar.Collapse {:id "basic-navbar-nav"
@@ -47,7 +48,7 @@
 (defn coll-of-cards [desc items]
   [:<>
    [:div.row.mt-5.mb-3  [:div.col [:hr]]  [:div.col-auto [:h5 desc]]  [:div.col [:hr]]]
-   [:div.row.
+   [:div.row
     (for [item items]
          ^{:key (:id item)}
          [:div {:class "col-lg-3 col-sm-6 d-flex justify-content-center mb-1"}

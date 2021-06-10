@@ -133,10 +133,12 @@
                             [:div {:class "col-12 col-md-12 col-lg-8"}
                              [:h1.text-uppercase.anchor "Nuestros Productos"]]]
                            [:div.row.justify-content-center
-                            [:div.p-5
-                             cafeteria
-                             panaderia
-                             rotiseria
-                             reposteria]]]
+                            [:div.p-3
+                             [:div {:class "container-fluid"}
+                              cafeteria
+                              panaderia
+                              rotiseria
+                              reposteria
+                              ]]]]
                           [:div.bg-super-black.pr-5.pl-5.pt-5 footer-section]])})))
 
